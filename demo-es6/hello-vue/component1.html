@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <hello1></hello1>
+    </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    const hello = {
+        template: "<div>hello {{name}}</div>",
+        data() {
+            return {
+                name: "tom"
+            }
+        }
+    }
+    const app = new Vue({
+        el: "#app",
+        data: {
+            num: 0
+        },
+        components: {
+            hello1: hello
+        }
+    })
+</script>
+</html>

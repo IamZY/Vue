@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <counter :num1="num"></counter>
+    </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component("counter",{
+        template: "<button @click='num1++'>click + 1 {{num1}}</button>",
+        props: ["num1"]
+    })
+    const app = new Vue({
+        el: "#app",
+        data: {
+            num: 0
+        }
+    })
+</script>
+</html>

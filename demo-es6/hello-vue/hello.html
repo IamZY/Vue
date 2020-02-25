@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .active {
+
+    }
+</style>
+<!--vue对象的html模板-->
+<body>
+<div id="app">
+
+    <div>{{birth}}</div>
+
+    <input type="text" v-model="store">
+    <input type="button" v-bind:class="{active: store > 0}" value="加入购物车">
+
+    <span v-if="show"></span>
+    <span v-show="show"></span>
+
+
+    <ul>
+        <li v-for="(index,key,val) in user" :key="index">{{index}}.{{key}}-{{val}}</li>
+    </ul>
+    <ul>
+        <li v-if="user.gender=='女'" v-for="(user,index) in users">{{index}}.{{user.name}} - {{user.gender}}</li>
+    </ul>
+    <hr>
+    <input type="checkbox" value="ios" v-model="language">ios
+    <input type="checkbox" value="ios" v-model="language">java
+    <input type="checkbox" value="ios" v-model="language">php
+    您选择了：{{language.join(',')}}
+
+    <input type="text" v-model="num" @keyup.enter="submit">
+    <!--v-on 时间名=js表达式-->
+    <input type="button" value="点击" @contextMenu.prevent="incr">
+    <h1>大家好 我是<span v-text="name">张学友</span>, 有{{num}}位妹子</h1>
+</div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    // 初始化一个vue实例
+    const app = new Vue({
+        el: "#app",  // element选择器
+        data: {  // 定义数据模型
+            name: "node",
+            num: 100,
+            language: [],
+            users: [
+                {name: '柳岩', gender: '女', age: 21},
+                {name: '峰哥', gender: '男', age: 18},
+                {name: '范冰冰', gender: '女', age: 24},
+                {name: '刘亦菲', gender: '女', age: 18},
+                {name: '古力娜扎', gender: '女', age: 25}
+            ],
+            user: {name: '柳岩', gender: '女', age: 21},
+            store: 0,
+            birthday:1529032123201
+        },
+        methods: {
+            incr() {
+                this.num++
+            },
+            decr() {
+
+            },
+            submit() {
+                console.log("你已经提交了")
+            }
+        },
+        created() {
+            // ajax到服务端获取数据
+        },
+        computed:{
+            birth(){// 计算属性本质是一个方法，但是必须返回结果
+                const d = new Date(this.birthday);
+                return d.getFullYear() + "-" + d.getMonth() + "-" + d.getDay();
+            }
+        }
+    })
+</script>
+</html>
