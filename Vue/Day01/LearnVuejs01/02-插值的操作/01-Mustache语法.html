@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{message}}</h2>
+    <h3>{{firstname + ' ' + lastname}}</h3>
+    <h4>{{counter * 2}}</h4>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+            firstname: 'kobe',
+            lastname: 'bryant',
+            counter: 100
+        }
+    })
+</script>
+</body>
+</html>
