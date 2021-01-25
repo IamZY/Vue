@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  解决vue闪烁问题 -->
+    <style>
+        [v-cloak]{
+            display:none
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div>
+        {{info.url}}
+    </div>
+    <a v-bind:href="info.url">click me</a>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    var app = new Vue({
+        el: "#app",
+        data(){
+            return{
+                // 请求的返回参数必须和json字符串一样
+                info: {}
+            }
+        },
+        mounted() {
+            // 钩子函数
+            axios.get('data.json').then(response=>(this.info=response.data))
+        }
+    })
+</script>
+</body>
+</html>

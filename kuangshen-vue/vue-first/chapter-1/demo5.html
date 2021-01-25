@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    输入的文本: <input type="text" v-model="message"> {{message}}
+
+    <br>
+    性别
+    <input type="radio" name="sex" value="男" v-model="qinjiang"> 男
+    <input type="radio" name="sex" value="女" v-model="qinjiang"> 女
+
+    <p>
+        选中了谁: {{qinjiang}}
+    </p>
+
+    <br>
+
+    <select v-model="selected">
+        <option value="" disabled>--请选择--</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+
+    <p>
+        选中了谁: {{selected}}
+    </p>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "",
+            checked: false,
+            qinjiang:"",   // 这里绑定是value的值
+            selected:""
+        }
+    })
+</script>
+</body>
+</html>

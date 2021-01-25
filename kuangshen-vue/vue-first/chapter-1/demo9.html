@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app" v-cloak>
+    <todo>
+        <todo-title slot="todo-title" :title="a"></todo-title>
+        <todo-items slot="todo-items" v-for="(i,index) in todoItems"
+                    :item="i" :index="index" v-on:remove="removeItem(index)"></todo-items>
+    </todo>
+</div>
+
+<script src="../js/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    // slot 插槽
+    Vue.component('todo', {
+        template:
+            '<div>' +
+            '<slot name="todo-title"></slot>' +
+            '<ul>' +
+            '<slot name="todo-items"></slot>' +
+            '</ul>' +
+            '</div>'
+    })
+    Vue.component('todo-title', {
+        props: ['title'],
+        template: '<div>{{title}}</div>'
+    })
+
+    Vue.component('todo-items', {
+        props: ['item','index'],
+        // 只能绑定当前组件的方法
+        template: '<li>{{index}}--{{item}} <button @click="remove">删除</button></li>',
+        methods: {
+            remove: function (index) {
+                this.$emit('remove',index)
+            }
+        }
+    })
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            a: 'ntuzy列表',
+            todoItems: ['Java', 'linux', 'vue']
+        },
+        methods: {
+            removeItem: function (index) {
+                // alert("222")
+                console.log('删除'+ this.todoItems[index] + 'ok')
+                this.todoItems.splice(index, 1)  //一次删除一个元素
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -241,7 +241,7 @@ node_modules是通过npm安装的所有模块的默认位置。
 
 ### 3.3.1.HTML模板
 
- 在hello-vue目录新建一个HTML
+ 在hello-vue目录新建一个HTML0
 
 ![1529719572523](assets/1529719572523.png)
 
@@ -1967,6 +1967,249 @@ var vm = new Vue({
 **注意**：单页应用中，页面的切换并不是页面的跳转。仅仅是地址最后的hash值变化。
 
 事实上，我们总共就一个HTML：index.html
+
+# 8.计算属性
+
+computed
+
+将不经常使用的属性放入计算属性中，类似与缓存的效果 提高浏览器的访问并发
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <p>currentTime1 {{currentTime1()}}</p>
+    <p>currentTime2 {{currentTime2}}</p>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            message: "hello world"
+        },
+        methods: {
+            currentTime1: function () {
+                return Date.now(); // 返回一个时间戳
+            }
+        },
+        computed: {
+            // 计算属性 将不经常访问的属性放入计算属性中，类似与缓存的效果
+            currentTime2: function () {
+                this.message  //
+                return Date.now(); // 返回一个时间戳
+            }
+        }
+    })
+</script>
+</body>
+</html>
+```
+
+# 9.插槽
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app" v-cloak>
+    <todo>
+        <todo-title slot="todo-title" :title="a"></todo-title>
+        <todo-items slot="todo-items" v-for="i in todoItems" :item="i"></todo-items>
+    </todo>
+</div>
+
+<script src="../js/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    // slot 插槽
+    Vue.component('todo', {
+        template:
+            '<div>' +
+            '<slot name="todo-title"></slot>' +
+            '<ul>' +
+            '<slot name="todo-items"></slot>' +
+            '</ul>' +
+            '</div>'
+    })
+    Vue.component('todo-title', {
+        props: ['title'],
+        template: '<div>{{title}}</div>'
+    })
+
+    Vue.component('todo-items',{
+        props: ['item'],
+        template: '<li>{{item}}</li>'
+    })
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            a: 'ntuzy列表',
+            todoItems: ['Java','linux','vue']
+        }
+    })
+</script>
+</body>
+</html>
+```
+
+
+
+![image-20210125162341959](images/image-20210125162341959.png)
+
+# 10.axios
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  解决vue闪烁问题 -->
+    <style>
+        [v-cloak]{
+            display:none
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div>
+        {{info.url}}
+    </div>
+    <a v-bind:href="info.url">click me</a>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    var app = new Vue({
+        el: "#app",
+        data(){
+            return{
+                // 请求的返回参数必须和json字符串一样
+                info: {}
+            }
+        },
+        mounted() {
+            // 钩子函数
+            axios.get('data.json').then(response=>(this.info=response.data))
+        }
+    })
+</script>
+</body>
+</html>
+```
+
+# 11.自定义事件
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app" v-cloak>
+    <todo>
+        <todo-title slot="todo-title" :title="a"></todo-title>
+        <todo-items slot="todo-items" v-for="(i,index) in todoItems"
+                    :item="i" :index="index" v-on:remove="removeItem(index)"></todo-items>
+    </todo>
+</div>
+
+<script src="../js/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    // slot 插槽
+    Vue.component('todo', {
+        template:
+            '<div>' +
+            '<slot name="todo-title"></slot>' +
+            '<ul>' +
+            '<slot name="todo-items"></slot>' +
+            '</ul>' +
+            '</div>'
+    })
+    Vue.component('todo-title', {
+        props: ['title'],
+        template: '<div>{{title}}</div>'
+    })
+
+    Vue.component('todo-items', {
+        props: ['item','index'],
+        // 只能绑定当前组件的方法
+        template: '<li>{{index}}--{{item}} <button @click="remove">删除</button></li>',
+        methods: {
+            remove: function (index) {
+                this.$emit('remove',index)
+            }
+        }
+    })
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            a: 'ntuzy列表',
+            todoItems: ['Java', 'linux', 'vue']
+        },
+        methods: {
+            removeItem: function (index) {
+                // alert("222")
+                console.log('删除'+ this.todoItems[index] + 'ok')
+                this.todoItems.splice(index, 1)  //一次删除一个元素
+            }
+        }
+    })
+</script>
+</body>
+</html>
+```
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

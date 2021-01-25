@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <qinjiang v-for="item in items" v-bind:zy="item"></qinjiang>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+
+    Vue.component("qinjiang", {
+        props: ['zy'],
+        template: '<li>{{zy}}</li>'
+    });
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            items: ["Java", "Linux", "前端"]
+        }
+    })
+</script>
+</body>
+</html>

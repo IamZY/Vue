@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdd8944e-e48b-46dd-bc0f-e65293dbd9c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/01-Vue初体验/03-vue案例-计数器.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01-Vue初体验/04-vue的template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02-插值的操作/01-Mustache语法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02-插值的操作/02-v-once指令的使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02-插值的操作/03-v-html指令的使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02-插值的操作/04-v-text指令的使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02-插值的操作/05-v-pre指令的使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02-插值的操作/06-v-cloak指令的使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/03-动态绑定属性/01-v-bind的基本使用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/03-动态绑定属性/02-v-bind动态绑定class(一).html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-Vue初体验/HelloVueJs.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-Vue初体验/01-HelloVueJs.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/03-动态绑定属性/02-v-bind动态绑定class(一).html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+            <state relative-caret-position="330">
+              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -88,6 +77,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -119,7 +109,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,18 +149,23 @@
       <option name="presentableId" value="Default" />
       <updated>1606461817035</updated>
       <workItem from="1606461818114" duration="3609000" />
-      <workItem from="1606616903275" duration="8256000" />
+      <workItem from="1606616903275" duration="8851000" />
+      <workItem from="1606697772156" duration="636000" />
+      <workItem from="1607945089093" duration="9000" />
+      <workItem from="1609143550824" duration="2000" />
+      <workItem from="1609234694720" duration="1000" />
+      <workItem from="1611537270776" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11865000" />
+    <option name="totallyTimeSpent" value="13122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19178082" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19125395" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -267,13 +261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/03-动态绑定属性/01-v-bind的基本使用.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/02-插值的操作/06-v-cloak指令的使用.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -281,10 +268,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/03-动态绑定属性/01-v-bind的基本使用.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/03-动态绑定属性/02-v-bind动态绑定class(一).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+        <state relative-caret-position="330">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
         </state>
       </provider>
     </entry>
