@@ -2189,9 +2189,27 @@ computed
 
 # 13.webpack
 
+# 14.创建项目
 
+## 1.初始化
 
+> vue init webpack 项目名
+>
+> 一直no
 
+## 2.进入项目 安装各种插件
+
+> npm install vue-router --save-dev
+
+> npm i element-ui -s
+
+> npm install sass-loader node-sass --save-dev
+
+需要降低sass-loader版本
+
+# 15.项目实战
+
+SpringBoot + Vue
 
 
 
