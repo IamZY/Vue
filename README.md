@@ -2209,9 +2209,36 @@ computed
 
 # 15.项目实战
 
-SpringBoot + Vue
+SpringBoot + Vue + ElementUI
 
++ ElementUI
 
+  + 安装完后需要在`main.js`中导入
+
+    > import ElementUI from 'element-ui'
+    > import 'element-ui/lib/theme-chalk/index.css';
+    >
+    > Vue.use(ElementUI)
+
+  + el-container 构建整个页面框架
+  + el-aside 左侧菜单
+  + el-menu 左侧菜单内容
+    + :default-openeds 默认打开的菜单 靠index分辨
+    + :defalut-active 默认选中的菜单
+  + el-submenu: 可展开的菜单栏
+    
+    + index 菜单下标 文本类型不能是数值类型
+  + template 对应的el-submenu菜单名
+  + i: 设置菜单图标 通过class属性设置
+    + el-icon-message
+    + el-icon-menu
+    + el-icon-setting
+
+## 15.1 menu与router的绑定
+
++ 标签添加router属性
++ 在页面中添加标签，他是一个容器。动态渲染你选择的router
++ 标签的index值就是需要跳转的router
 
 
 
