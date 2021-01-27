@@ -4,11 +4,11 @@
 
       <el-menu router :default-openeds="['0','1']">
         <el-submenu v-for="(item,index) in $router.options.routes" :index="index+''">
-          <template slot="title"><i class="el-icon-message"></i>{{index}}-{{item.name}}</template>
+          <template slot="title"><i class="el-icon-message"></i>{{item.name}}</template>
           <el-menu-item v-for="(item2,index2) in item.children"
                         :index="item2.path"
                         :class="$route.path==item2.path?'is-active':''"
-                        >{{index2}}-{{item2.name}}</el-menu-item>
+                        >{{item2.name}}</el-menu-item>
         </el-submenu>
       </el-menu>
 

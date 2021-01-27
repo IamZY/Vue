@@ -2,10 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Book from '../views/Book'
-import Page1 from '../views/Page1'
-import Page2 from '../views/Page2'
-import Page3 from '../views/Page3'
-import Page4 from '../views/Page4'
+import BookManage from '../views/BookManage'
+import AddBook from '../views/AddBook'
 import App from '../App'
 import Index from '../views/Index'
 
@@ -16,46 +14,24 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: '导航1',
+      name: '图书管理',
       component: Index,
-      redirect: '/page1',
+      redirect: '/BookManage',
       children: [
 
         {
-          path: '/page1',
-          name: '导航1',
-          component: Page1
+          path: '/BookManage',
+          name: '查询图书',
+          component: BookManage
         },
         {
-          path: '/page2',
-          name: '导航2',
-          component: Page2
+          path: '/AddBook',
+          name: '添加图书',
+          component: AddBook
         }
 
-      ]
-    },
-    {
-      path: '/navigation',
-      name: '导航2',
-      component: Index,
-      children: [
-        {
-          path: '/book',
-          name: 'book',
-          component: Book
-        },
-
-        {
-          path: '/page3',
-          name: '导航3',
-          component: Page3
-        },
-        {
-          path: '/page4',
-          name: '导航4',
-          component: Page4
-        }
       ]
     }
+
   ]
 })
