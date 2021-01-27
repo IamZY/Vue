@@ -2240,7 +2240,7 @@ SpringBoot + Vue + ElementUI
 + 在页面中添加标签，他是一个容器。动态渲染你选择的router
 + 标签的index值就是需要跳转的router
 
-
+## 15.2 rule校验规则
 
 
 
