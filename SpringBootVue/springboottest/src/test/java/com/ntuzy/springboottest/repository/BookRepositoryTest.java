@@ -26,4 +26,26 @@ class BookRepositoryTest {
         bookRepository.save(book);
     }
 
+    @Test
+    void findById() {
+        Book book = bookRepository.findById(1).get();
+        System.out.println(book);
+    }
+
+    @Test
+    void update() {
+        Book book = new Book();
+        book.setId(123);
+        book.setName("测试测试");
+        Book book1 = bookRepository.save(book);
+        System.out.println(book1);
+    }
+
+    @Test
+    void delete() {
+        Book book = new Book();
+        book.setId(123);
+        bookRepository.delete(book);
+    }
+
 }

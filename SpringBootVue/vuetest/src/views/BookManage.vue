@@ -21,12 +21,11 @@
         width="120">
       </el-table-column>
       <el-table-column
-        fixed="right"
         label="操作"
         width="100">
         <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-          <el-button type="text" size="small">编辑</el-button>
+          <el-button @click="edit(scope.row)" type="text" size="small">修改</el-button>
+          <el-button @click="deleteBook(scope.row)" type="text" size="small">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -45,8 +44,22 @@
   export default {
     name: 'Page1',
     methods: {
-      handleClick(row) {
-        console.log(row);
+      deleteBook(row) {
+        const _this = this
+        this.$axios.delete('http://localhost:8181/book/deleteById/' + row.id).then(function (resp) {
+          _this.$message('修改成功')
+          //_this.$router.push('/BookManage')
+          window.location.reload()
+        })
+      },
+      edit(row) {
+        // row.id
+        this.$router.push({
+          path: '/update',
+          query: {
+            id: row.id
+          }
+        })
       },
       page(currentPage) {
         const _this = this

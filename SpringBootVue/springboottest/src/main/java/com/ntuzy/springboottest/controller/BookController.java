@@ -15,7 +15,7 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    @RequestMapping("/list/{page}/{size}")
+    @RequestMapping(value = "/list/{page}/{size}")
     private Page<Book> findAll(@PathVariable Integer page, @PathVariable Integer size) {
         Pageable pageable = PageRequest.of(page - 1, size);
         return bookRepository.findAll(pageable);
@@ -29,6 +29,26 @@ public class BookController {
         } else {
             return "error";
         }
+    }
+
+    @GetMapping("/findById/{id}")
+    public Book findById(@PathVariable Integer id) {
+        return bookRepository.findById(id).get();
+    }
+
+    @PutMapping("/update")
+    public String update(@RequestBody Book book) {
+        Book result = bookRepository.save(book);
+        if (null != result) {
+            return "success";
+        } else {
+            return "error";
+        }
+    }
+
+    @DeleteMapping("/deleteById/{id}")
+    public void deleteById(@PathVariable Integer id) {
+        bookRepository.deleteById(id);
     }
 
 }
